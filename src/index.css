@@ -1,0 +1,84 @@
+@import 'modern-normalize/modern-normalize.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  background-color: teal;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+
+img {
+  display: block;
+}
+
+a {
+  color: silver;
+}
+
+button,input {
+  display: block;
+  padding-top: 10px;
+  padding-right: 22px;
+  padding-bottom: 10px;
+  padding-left: 22px;
+
+  border-radius: 6px;
+  margin: 10px;
+  background-color: silver;
+}
+
+button {
+  min-width: 200px;
+  margin: 0 auto;
+}
+
+input {
+  width: 96%;
+}
+
+input:hover,
+input:focus,
+button:hover,
+button:focus {
+  background-color: whitesmoke;
+}
+span {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+form {
+  border: 1px solid whitesmoke;
+  border-radius: 6px;
+  width: 400px;
+
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 26px;
+  padding-right: 26px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}

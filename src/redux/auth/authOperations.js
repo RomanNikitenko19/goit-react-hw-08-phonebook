@@ -6,16 +6,20 @@ const signup = createAsyncThunk("/auth/signupStatus", (newUser) => {
 });
 
 const login = createAsyncThunk("/users/loginStatus", (user) => {
-  console.log(user);
-  return api.loginUser("/users/login", user);
+  return api.loginUser("users/login", user);
 });
 
 const logout = createAsyncThunk("/users/logoutStatus", (token) => {
-  return api.logoutUser("/users/logout", token);
+
+  return api.logoutUser("users/logout", token);
 });
 
-const getCurrent = createAsyncThunk("/users/currentStatus", (token) => {
-  return api.getCurrentUser("/users/current", token);
+const getCurrent = createAsyncThunk("/users/currentStatus", (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+  const persistToken = state.auth.token;
+
+  if (!persistToken) thunkAPI.rejectWithValue();
+  return api.getCurrentUser("users/current", persistToken);
 });
 
 export { signup, login, logout, getCurrent };

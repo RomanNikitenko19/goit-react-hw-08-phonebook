@@ -3,7 +3,7 @@ import { createLogger } from "redux-logger";
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import authSlise from "./auth/authSlise";
-// import contactsSlice from "./contacts/contactsSlice";
+import contactsSlice from "./contacts/contactsSlice";
 
 const logger = createLogger({
   collapsed: (getState, action, logEntry) => !logEntry.error,
@@ -18,7 +18,7 @@ const authPersistConfig = {
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authSlise),
-    // contacts: contactsSlice,
+    contacts: contactsSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

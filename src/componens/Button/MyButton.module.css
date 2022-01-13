@@ -1,0 +1,17 @@
+.myBtn {
+  display: inline-block;
+  min-width: 200px;
+  padding-top: 10px;
+  padding-right: 22px;
+  padding-bottom: 10px;
+  padding-left: 22px;
+
+  border-radius: 6px;
+  margin: 10px;
+  background-color: silver;
+}
+
+.myBtn:hover,
+.myBtn:focus {
+  background-color: whitesmoke;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import MyButton from '../Button/MyButton';
+import MyButton from '../UI/Button/MyButton';
 import s from './ContactItem.module.css';
 
 const ContactItem = ({ id, name, number, delContact }) => {

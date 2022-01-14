@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { signup } from "../../redux/auth/authOperations";
+import s from "./RegistrationPage.module.css";
 
 const RegistrationPage = () => {
   const [name, setName] = useState("");
@@ -47,7 +48,7 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div>
+    <div className={s.container}>
       <form onSubmit={handleSubmit}>
         <label>
           <span>Name</span>

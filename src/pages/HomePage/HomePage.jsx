@@ -1,11 +1,16 @@
 import React from 'react';
-import Title from '../../componens/Title';
+import Title from '../../componens/UI/Title';
+import s from "./HomePage.module.css";
 
 const HomePage = () => {
   return (
-    <div>
-      <Title title='Here could be your advertisement...'/>
-    </div>
+    <section className={s.section}>
+      <div className={s.container}>
+        <Title
+          title="Welcome to the application for storing personal contacts"
+        />
+      </div>
+    </section>
   );
 };
 

@@ -1,13 +1,16 @@
-import { Suspense, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { Suspense, useEffect, lazy } from "react";
+import { Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrent } from "../redux/auth/authOperations";
-import MyLoader from "../componens/UI/Loader/MyLoader";
-import LoginPage from "../pages/LoginPage/LoginPage";
-import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
+import PrivateRoute from "../componens/PrivateRoute";
+import PublicRoute from "../componens/PublicRoute";
 import AppBar from "../componens/AppBar/AppBar";
-import ContactsPage from "../pages/ContactsPage/ContactsPage";
-import HomePage from "../pages/HomePage/HomePage";
+import MyLoader from "../componens/UI/Loader/MyLoader";
+
+const HomePage = lazy(() => import("../pages/HomePage/HomePage") /* webpackChunkName: "Home___Page" */);
+const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage") /* webpackChunkName: "Login___Page" */);
+const RegistrationPage = lazy(() => import("../pages/RegistrationPage/RegistrationPage") /* webpackChunkName: "Registration___Page" */);
+const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage") /* webpackChunkName: "Contacts___Page" */);
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,19 +31,21 @@ const App = () => {
 
           <Suspense fallback={<MyLoader />}>
             <Switch>
-              <Route exact path="/">
+              <PublicRoute exact path="/">
                 <HomePage />
-              </Route>
-              <Route exact path="/login">
+              </PublicRoute>
+
+              <PublicRoute exact path="/login" redirectTo="/contacts" restricted>
                 <LoginPage />
-              </Route>
-              <Route exact path="/register">
-                {/* isLoggedIn ? <RegistrationPage />: <Redirect to="/login" /> */}
+              </PublicRoute>
+
+              <PublicRoute exact path="/register" restricted>
                 <RegistrationPage />
-              </Route>
-              <Route exact path="/contacts">
+              </PublicRoute>
+
+              <PrivateRoute path="/contacts" redirectTo="/login">
                 <ContactsPage />
-              </Route>
+              </PrivateRoute>
             </Switch>
           </Suspense>
         </>

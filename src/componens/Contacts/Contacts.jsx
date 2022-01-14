@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { changeFilter } from "../../redux/contacts/contactsSlice";
-import Title from "../Title";
+import Title from "../UI/Title";
 import ContactsList from "../ContactsList";
 import s from "./Contacts.module.css";
 

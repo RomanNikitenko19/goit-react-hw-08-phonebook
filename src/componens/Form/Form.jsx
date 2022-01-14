@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/contactsOperations";
 import { useState } from "react";
-import MyButton from "../Button/MyButton";
+import MyButton from "../UI/Button/MyButton";
 
 const Form = () => {
-  const token = useSelector(state => state.auth.token);
+  const token = useSelector((state) => state.auth.token);
   const сontacts = useSelector((state) => state.contacts.data.items);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
@@ -55,7 +55,7 @@ const Form = () => {
     <>
       <form onSubmit={handleSubmit}>
         <label>
-          Name
+          <span>Name</span>
           <input
             onChange={handleChange}
             value={name}
@@ -67,7 +67,7 @@ const Form = () => {
           />
         </label>
         <label>
-          Number
+          <span>Number</span>
           <input
             onChange={handleChange}
             value={number}
@@ -78,11 +78,10 @@ const Form = () => {
             required
           />
         </label>
-        <MyButton type="submit">Add contact</MyButton>
+        <MyButton  type="submit">Add contact</MyButton>
       </form>
     </>
   );
 };
 
 export default Form;
-

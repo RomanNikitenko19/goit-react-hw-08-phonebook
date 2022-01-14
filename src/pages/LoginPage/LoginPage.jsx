@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from '../../redux/auth/authOperations';
+import s from "./LoginPage.module.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -41,18 +42,11 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className={s.container}>
       <form onSubmit={handleSubmit}>
         <label>
           <span>Email</span>
-          <input
-            onChange={handleChange}
-            value={email}
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            required
-          />
+          <input onChange={handleChange} value={email} type="email" name="email" placeholder="Enter email" required />
         </label>
 
         <label>

@@ -1,55 +1,30 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import s from "./NavPhoneBook.module.css";
 
 const NavPhoneBook = () => {
   const isloggedInUser = useSelector((state) => state.auth.isloggedInUser);
   return (
     <>
       <nav>
-        <div>
-          <ul>
+        <ul className={s.list}>
+          <li className={s.item}>
+            <NavLink exact to="/" activeClassName={s.activeLink}>
+              Home
+            </NavLink>
+          </li>
+          {isloggedInUser && (
             <li>
-              <NavLink exact to="/">
-                Home
-              </NavLink>
-            </li>
-            {isloggedInUser &&
-            <li>
-              <NavLink exact to="/contacts">
+              <NavLink exact to="/contacts" activeClassName={s.activeLink}>
                 Contacts
               </NavLink>
-            </li>}
-          </ul>
-        </div>
+            </li>
+          )}
+        </ul>
       </nav>
     </>
   );
 };
 
 export default NavPhoneBook;
-//////
-// const NavPhoneBook = () => {
-//   return (
-//     <>
-//       <nav className={s.section}>
-//         <div className={s.container}>
-//           <ul className={s.list}>
-//             <li className={s.item}>
-//               <NavLink to="/login" activeClassName={s.activeLink}>
-//                 Login
-//               </NavLink>
-//             </li>
-//             <li className={s.item}>
-//               <NavLink to="/register" activeClassName={s.activeLink}>
-//                 Registration
-//               </NavLink>
-//             </li>
-//           </ul>
-//         </div>
-//       </nav>
-//     </>
-//   );
-// };
-
-// export default NavPhoneBook;

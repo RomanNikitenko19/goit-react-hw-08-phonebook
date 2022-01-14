@@ -1,0 +1,11 @@
+.container {
+  width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 60px 0;
+  text-align: left;
+}

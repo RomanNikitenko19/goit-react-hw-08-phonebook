@@ -47,12 +47,12 @@ button,input {
 }
 
 button {
-  min-width: 200px;
+  min-width: 180px;
   margin: 0 auto;
 }
 
 input {
-  width: 96%;
+  width: 98%;
 }
 
 input:hover,
@@ -70,15 +70,14 @@ span {
 form {
   border: 1px solid whitesmoke;
   border-radius: 6px;
-  width: 400px;
 
   display: block;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 26px;
-  padding-right: 26px;
+  padding-left: 20px;
+  padding-right: 20px;
   padding-top: 10px;
   padding-bottom: 20px;
 }

@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { deleteContact } from "../../redux/contacts/contactsOperations";
 import ContactItem from "../ContactItem/ContactItem";
 
@@ -19,9 +20,14 @@ const ContactsList = () => {
   return (
     <>
       <ul>
-        {filterContacts().map(({ id, name, number }) => {
-          return <ContactItem key={id} id={id} name={name} number={number} delContact={delContact} />;
-        })}
+        <TransitionGroup>
+          {filterContacts().map(({ id, name, number }) =>
+              <CSSTransition key={id} timeout={500} classNames="post">
+                <ContactItem id={id} name={name} number={number} delContact={delContact} />
+              </CSSTransition>
+          )}
+        </TransitionGroup>
+
       </ul>
     </>
   );
